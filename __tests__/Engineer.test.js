@@ -10,7 +10,7 @@ test('creates Engineer object', () => {
 })
 
 test('gets Engineer name, id, email, github username, and role using get functions', () => {
-  const employee = new Employee('Shane', 1, 'shane@gmail.com', 'ShaneMcElrath');
+  const employee = new Engineer('Shane', 1, 'shane@gmail.com', 'ShaneMcElrath');
 
   expect(employee.getName()).toBe('Shane');
   expect(employee.getId()).toBe(1);
