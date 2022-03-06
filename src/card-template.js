@@ -9,7 +9,7 @@ const displayOfficeNum = function(employeeInfo) {
   }
   else if (role == 'Engineer') {
     return `
-    Github: <a href="https://github.com/${employeeInfo.getGithub()}">${employeeInfo.getGithub()}</a>
+    Github: <a href="https://github.com/${employeeInfo.getGithub()}" target="_blank">${employeeInfo.getGithub()}</a>
     `;
   }
   else {
@@ -29,7 +29,7 @@ const cardBodyData = function(employeeInfo) {
       </h2>
       <div class="card-Body">
         ID: ${employeeInfo.getId()} <br>
-        Email: ${employeeInfo.getEmail()} <br>
+        Email: <a href="mailto:${employeeInfo.getEmail()}">${employeeInfo.getEmail()}</a> <br>
         ${displayOfficeNum(employeeInfo)}
       </div>
     </div>
