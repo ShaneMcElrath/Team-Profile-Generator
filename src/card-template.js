@@ -1,21 +1,43 @@
 
-const cardBodyData = function() {
-  return ` <div class="card">
-    <h2 class="card-Header">
-      manager.Name <br>
-      Manager
-    </h2>
-    <div class="card-Body">
-      ID 123 <br>
-      Email:suman@gmail.com
+const displayOfficeNum = function(employeeInfo) {
+  let role = employeeInfo.getRole();
+
+  if (role == 'Manager') {
+    return `
+    Office Number: ${employeeInfo.officeNumber}
+    `;
+  }
+  else if (role == 'Engineer') {
+    return `
+    Github: <a href="https://github.com/${employeeInfo.getGithub()}">${employeeInfo.getGithub()}</a>
+    `;
+  }
+  else {
+    return `
+    School: ${employeeInfo.getSchool()}
+    `;
+  }
+}
+
+const cardBodyData = function(employeeInfo) {
+  return employeeInfo.map((employeeInfo) => {
+    return `
+    <div class="card">
+      <h2 class="card-Header">
+        ${employeeInfo.getName()} <br>
+        ${employeeInfo.getRole()}
+      </h2>
+      <div class="card-Body">
+        ID: ${employeeInfo.getId()} <br>
+        Email: ${employeeInfo.getEmail()} <br>
+        ${displayOfficeNum(employeeInfo)}
+      </div>
     </div>
-  </div>
-  `;
-};
+    `;
+  });
+}
 
-const cardData = function() {
-
-  
+const cardData = function(employeeInfo) {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -33,7 +55,7 @@ const cardData = function() {
     </header>
   
     <main>
-      ${cardBodyData()}
+      ${cardBodyData(employeeInfo)}
     </main>
     
   </body>

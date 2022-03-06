@@ -1,6 +1,5 @@
 
-//This code has been taken from the reading in module 9
-
+// This code has been taken from the reading in module 9.
 const fs = require('fs');
 
 const writeFile = fileContent => {

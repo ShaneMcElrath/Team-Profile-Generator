@@ -1,7 +1,12 @@
 const Intern = require('../lib/Intern');
 
 test('creates an intern object', () => {
-  const intern = new Intern('Shane', 1, 'shane@gmail.com', 'UCF');
+  const intern = new Intern({ 
+    name: 'Shane',
+    id: 1,
+    email: 'shane@gmail.com',
+    school: 'UCF' 
+  });
 
   expect(intern.name).toBe('Shane');
   expect(intern.id).toBe(1);
@@ -10,7 +15,12 @@ test('creates an intern object', () => {
 });
 
 test('gets intern name, id, email, role, and school using get functions', () => {
-  const intern = new Intern('Shane', 1, 'shane@gmail.com', 'UCF');
+  const intern = new Intern({ 
+    name: 'Shane',
+    id: 1,
+    email: 'shane@gmail.com',
+    school: 'UCF' 
+  });
 
   expect(intern.getName()).toBe('Shane');
   expect(intern.getId()).toBe(1);

@@ -1,7 +1,12 @@
 const Engineer = require('../lib/Engineer');
 
 test('creates Engineer object', () => {
-  const engineer = new Engineer('Shane', 1, 'shane@gmail.com', 'ShaneMcElrath');
+  const engineer = new Engineer({ 
+    name: 'Shane',
+    id: 1,
+    email: 'shane@gmail.com',
+    github: 'ShaneMcElrath' 
+  });
 
   expect(engineer.name).toBe('Shane');
   expect(engineer.id).toBe(1);
@@ -10,7 +15,12 @@ test('creates Engineer object', () => {
 })
 
 test('gets Engineer name, id, email, github username, and role using get functions', () => {
-  const employee = new Engineer('Shane', 1, 'shane@gmail.com', 'ShaneMcElrath');
+  const employee = new Engineer({ 
+    name: 'Shane',
+    id: 1,
+    email: 'shane@gmail.com',
+    github: 'ShaneMcElrath' 
+  });
 
   expect(employee.getName()).toBe('Shane');
   expect(employee.getId()).toBe(1);

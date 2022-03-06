@@ -12,8 +12,17 @@ const promptQuestions = {
     // Prompts user with manager specific questions.
     let specificManagerInfo = await inquirer.prompt(questions.managerQuestion);
 
-    // Asks user if they want to add another employee and return there anwser. 
+    return { ...baseManagerInfo, ...specificManagerInfo };
+  },
+
+  async addEmployeePrompt() {
+    // Asks user if they want to add another employee and returns their anwser. 
     return await inquirer.prompt(questions.addEmployeeQuestion);
+  },
+
+  async employeeRolePrompt() {
+    // Asks user what type of employee they want to add next and returns their anwser.
+    return await inquirer.prompt(questions.employeeRoleQuestion);
   }
 }
 

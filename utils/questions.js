@@ -12,7 +12,7 @@ const questions = {
     }
   ],
 
-  whichEmployeeQuestion: [
+  employeeRoleQuestion: [
     {    
       type: 'list',
       name: 'blnIsEngineer',
@@ -28,7 +28,7 @@ const questions = {
   managerQuestion: [
     {
       type: 'input',
-      name: 'officenumber',
+      name: 'officeNumber',
       message: 'What is this managers office number? (Required)',
       validate: nameInput => {
         if (nameInput) {
@@ -60,7 +60,7 @@ const questions = {
   internQuestions: [
     {    
       type: 'input',
-      name: 'schoolname',
+      name: 'school',
       message: "Enter this interns School? (Required)",
       validate: nameInput => {
         if (nameInput) {
@@ -91,7 +91,7 @@ const questions = {
       },
       {
         type: 'input',
-        name: 'employeeid',
+        name: 'id',
         message: `Enter this ${employeeLable}s ID? (Required)`,
         validate: nameInput => {
           if (nameInput) {
