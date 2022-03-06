@@ -3,7 +3,7 @@ const questions = require('./questions');
 
 const promptQuestions = {
   async managerPrompt() {
-    // Changes base Questions to have the word manager in them.
+    // Changes base Questions to have the word MSanager in them.
     questions.updateQuestions('Manager');
 
     // Prompts user with base questions.
@@ -13,6 +13,18 @@ const promptQuestions = {
     let specificManagerInfo = await inquirer.prompt(questions.managerQuestion);
 
     return { ...baseManagerInfo, ...specificManagerInfo };
+  },
+
+  async EngineerPrompt() {
+    // Changes base Questions to have the word Engineer in them.
+    questions.updateQuestions('Engineer');
+
+    // Prompts user with base questions.
+    let baseEngineerInfo = await inquirer.prompt(questions.baseQuestions);
+
+    let specificEngineerInfo = await inquirer.prompt(questions.managerQuestion);
+
+    return { ...baseManagerInfo, ...specificEngineerInfo };
   },
 
   async addEmployeePrompt() {
