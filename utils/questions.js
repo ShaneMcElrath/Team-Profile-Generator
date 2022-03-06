@@ -6,7 +6,7 @@ const questions = {
   addEmployeeQuestion: [
     {    
       type: 'confirm',
-      name: 'addNewEmployee',
+      name: 'addNew',
       message: "Do you want to add another employee?",
       default: false
     }
@@ -15,7 +15,7 @@ const questions = {
   employeeRoleQuestion: [
     {    
       type: 'list',
-      name: 'blnIsEngineer',
+      name: 'employeeType',
       message: "What type of employee do you want to add?",
       choices: [
         'Engineer',

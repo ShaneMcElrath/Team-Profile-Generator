@@ -19,26 +19,40 @@ let main = async function() {
   employeeInfo.push(manager);
 
   // Asks user if they want to add another employee.
-  let addNew = await promptQuetions.addEmployeePrompt();
-
+  let { addNew } = await promptQuetions.addEmployeePrompt();
 
   while(addNew) {
-    let employeeType = promptQuetions.employeeRolePrompt();
+    // Asks what type of employee you want to enter next.
+    let { employeeType } = await promptQuetions.employeeRolePrompt();
 
-    if (employeeType == Engineer) {
-
+    // If user selected Engineer then prompt Engineer questions.
+    if (employeeType == 'Engineer') {
+      // Asks user Engineer questions.
+      let engineerInfo = await promptQuetions.engineerPrompt();
+      // Puts user answer into new object.
+      let engineer = new Engineer(engineerInfo);
+      // Puts object into array of objects.
+      employeeInfo.push(engineer);
     }
+    // If users selected Intern the prompt Intern questions.
     else {
-
+      // Asks user Intern questions.
+      let internInfo = await promptQuetions.internPrompt();
+      // Puts user answer into new object.
+      let intern = new Intern(internInfo);
+      // Puts object into array of objects.
+      employeeInfo.push(intern);
     }
 
-    addNew = await promptQuetions.addEmployeePrompt();
-
-    addNew = false;
+    // Asks user if they want to add another employee.
+    ({ addNew } = await promptQuetions.addEmployeePrompt());
   }
 
+  // Creates string of HTML using all of the employees info.
   let cardData = cardTemplate(employeeInfo);
+  // Creates HTML file using string of HTML
   writeFile(cardData);
+  // Copys CSS folder to another location.
   copyFile();
 }
 

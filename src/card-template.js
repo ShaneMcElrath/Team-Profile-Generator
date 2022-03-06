@@ -34,7 +34,8 @@ const cardBodyData = function(employeeInfo) {
       </div>
     </div>
     `;
-  });
+  })
+  .join('');
 }
 
 const cardData = function(employeeInfo) {

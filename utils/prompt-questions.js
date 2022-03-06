@@ -15,16 +15,30 @@ const promptQuestions = {
     return { ...baseManagerInfo, ...specificManagerInfo };
   },
 
-  async EngineerPrompt() {
+  async engineerPrompt() {
     // Changes base Questions to have the word Engineer in them.
     questions.updateQuestions('Engineer');
 
     // Prompts user with base questions.
     let baseEngineerInfo = await inquirer.prompt(questions.baseQuestions);
 
-    let specificEngineerInfo = await inquirer.prompt(questions.managerQuestion);
+    // Prompts user with Engineer specific questions.
+    let specificEngineerInfo = await inquirer.prompt(questions.engineerQuestion);
 
-    return { ...baseManagerInfo, ...specificEngineerInfo };
+    return { ...baseEngineerInfo, ...specificEngineerInfo };
+  },
+
+  async internPrompt() {
+    // Changes base Questions to have the word Engineer in them.
+    questions.updateQuestions('Intern');
+
+    // Prompts user with base questions.
+    let baseInternInfo = await inquirer.prompt(questions.baseQuestions);
+
+    // Prompts user with Engineer specific questions.
+    let specificInternInfo = await inquirer.prompt(questions.internQuestions);
+
+    return { ...baseInternInfo, ...specificInternInfo };
   },
 
   async addEmployeePrompt() {
