@@ -56,7 +56,9 @@ const cardData = function(employeeInfo) {
     </header>
   
     <main>
-      ${cardBodyData(employeeInfo)}
+      <div class="card-Container">
+        ${cardBodyData(employeeInfo)}
+      </div>
     </main>
     
   </body>
